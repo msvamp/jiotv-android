@@ -17,6 +17,7 @@ By using patches in this repo, you understand that you are choosing to reverse-e
 4. Disable floating autoplay on channel playback screen
 5. Disable JioEngage integration (untested)
 6. Remove ability to enforce mandatory updates (untested)
+7. Prevent analytics data reporting (partially working, some events are still sent)
 
 ## How to use?
 
