@@ -15,6 +15,7 @@ By using patches in this repo, you understand that you are choosing to reverse-e
 2. Disable ads on the channel playback screen
 3. Disable floating autoplay on app home
 4. Disable floating autoplay on channel playback screen
+5. Disable JioEngage integration (untested)
 
 ## How to use?
 

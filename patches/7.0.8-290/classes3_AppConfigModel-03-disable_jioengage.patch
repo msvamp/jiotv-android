@@ -1,0 +1,17 @@
+diff --git a/src/smali_classes3/com/jio/jioplay/tv/data/network/response/AppConfigModel.smali b/src/smali_classes3/com/jio/jioplay/tv/data/network/response/AppConfigModel.smali
+index 77686c2..f01fa25 100644
+--- a/src/smali_classes3/com/jio/jioplay/tv/data/network/response/AppConfigModel.smali
++++ b/src/smali_classes3/com/jio/jioplay/tv/data/network/response/AppConfigModel.smali
+@@ -5861,11 +5861,11 @@
+ .end method
+ 
+ .method public isEnableJioEngage()Z
+     .locals 1
+ 
+-    iget-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableJioEngage:Z
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method
+ 
+ .method public isEnableLanguageOnBoarding()Z
