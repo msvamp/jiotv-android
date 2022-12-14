@@ -1,0 +1,49 @@
+diff --git a/src/smali_classes3/com/jio/jioplay/tv/data/network/response/AppConfigModel.smali b/src/smali_classes3/com/jio/jioplay/tv/data/network/response/AppConfigModel.smali
+index c807b9f..77686c2 100644
+--- a/src/smali_classes3/com/jio/jioplay/tv/data/network/response/AppConfigModel.smali
++++ b/src/smali_classes3/com/jio/jioplay/tv/data/network/response/AppConfigModel.smali
+@@ -5800,26 +5800,13 @@
+ .end method
+ 
+ .method public isEnableAutoplay()Z
+     .locals 1
+ 
+-    .line 1
+-    invoke-static {}, Lcom/jio/jioplay/tv/utils/CommonUtils;->isTablet()Z
+-
+-    move-result v0
+-
+-    if-eqz v0, :cond_0
+-
+     const/4 v0, 0x0
+ 
+     return v0
+-
+-    .line 2
+-    :cond_0
+-    iget-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableAutoplay:Z
+-
+-    return v0
+ .end method
+ 
+ .method public isEnableBannerAds()Z
+     .locals 1
+ 
+@@ -6483,13 +6470,15 @@
+ 
+     return-void
+ .end method
+ 
+ .method public setEnableAutoplay(Z)V
+-    .locals 0
++    .locals 1
++
++    const/4 v0, 0x0
+ 
+-    iput-boolean p1, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableAutoplay:Z
++    iput-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableAutoplay:Z
+ 
+     return-void
+ .end method
+ 
+ .method public setEnableBannerAds(Z)V

@@ -1,0 +1,54 @@
+diff --git a/src/smali_classes3/com/jio/jioplay/tv/data/network/response/ChannelModel.smali b/src/smali_classes3/com/jio/jioplay/tv/data/network/response/ChannelModel.smali
+index 3849a5d..db806b6 100644
+--- a/src/smali_classes3/com/jio/jioplay/tv/data/network/response/ChannelModel.smali
++++ b/src/smali_classes3/com/jio/jioplay/tv/data/network/response/ChannelModel.smali
+@@ -472,31 +472,10 @@
+ .end method
+ 
+ .method public getIsPlayAlongEnabled()I
+     .locals 1
+ 
+-    .line 1
+-    invoke-static {}, Lcom/jio/jioplay/tv/data/AppDataManager;->get()Lcom/jio/jioplay/tv/data/AppDataManager;
+-
+-    move-result-object v0
+-
+-    invoke-virtual {v0}, Lcom/jio/jioplay/tv/data/AppDataManager;->getAppConfig()Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;
+-
+-    move-result-object v0
+-
+-    invoke-virtual {v0}, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->isEnablePlayalong()Z
+-
+-    move-result v0
+-
+-    if-eqz v0, :cond_0
+-
+-    .line 2
+-    iget v0, p0, Lcom/jio/jioplay/tv/data/network/response/ChannelModel;->isPlayAlongEnabled:I
+-
+-    return v0
+-
+-    :cond_0
+     const/4 v0, 0x0
+ 
+     return v0
+ .end method
+ 
+@@ -986,13 +965,15 @@
+ 
+     return-void
+ .end method
+ 
+ .method public setIsPlayAlongEnabled(I)V
+-    .locals 0
++    .locals 1
++
++    const/4 v0, 0x0
+ 
+-    iput p1, p0, Lcom/jio/jioplay/tv/data/network/response/ChannelModel;->isPlayAlongEnabled:I
++    iput v0, p0, Lcom/jio/jioplay/tv/data/network/response/ChannelModel;->isPlayAlongEnabled:I
+ 
+     return-void
+ .end method
+ 
+ .method public setIsSoreCardEnabled(Z)V
