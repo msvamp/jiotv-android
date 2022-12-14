@@ -9,6 +9,11 @@ Original app: https://play.google.com/store/apps/details?id=com.jio.jioplay.tv
 JioTV is a registered trademark of Reliance Industries Limited.
 By using patches in this repo, you understand that you are choosing to reverse-engineer and modify the original software distributed by [Jio Platforms Limited](https://play.google.com/store/apps/dev?id=8426036374624640337) / RJIL. Any damage or inconvenience caused by using the resulting modified software is solely your responsibility. Neither the developers of the app, nor the contributors of the patches in this repository shall be held responsible for the same.
 
+## Current list of patches (v7.0.8-290)
+
+1. Disable ads in the app's navigation
+2. Disable ads on the channel playback screen
+
 ## How to use?
 
 1. Ensure JDK 8+ is installed and `java` is present in PATH

@@ -1,0 +1,605 @@
+diff --git a/src/smali_classes3/com/jio/jioplay/tv/data/network/response/AppConfigModel.smali b/src/smali_classes3/com/jio/jioplay/tv/data/network/response/AppConfigModel.smali
+index 0404bf8..c807b9f 100644
+--- a/src/smali_classes3/com/jio/jioplay/tv/data/network/response/AppConfigModel.smali
++++ b/src/smali_classes3/com/jio/jioplay/tv/data/network/response/AppConfigModel.smali
+@@ -4453,11 +4453,11 @@
+     :goto_0
+     return v0
+ .end method
+ 
+ .method public getAdList(Lcom/jio/jioplay/tv/data/models/ScreenType;)Ljava/util/List;
+-    .locals 4
++    .locals 2
+     .annotation system Ldalvik/annotation/Signature;
+         value = {
+             "(",
+             "Lcom/jio/jioplay/tv/data/models/ScreenType;",
+             ")",
+@@ -4468,87 +4468,15 @@
+     .end annotation
+ 
+     .annotation build Lorg/jetbrains/annotations/NotNull;
+     .end annotation
+ 
+-    if-nez p1, :cond_0
+-
+-    const/4 p1, 0x0
+-
+-    return-object p1
+-
+-    .line 1
+-    :cond_0
+-    invoke-virtual {p0}, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->getBothTopAndBottomTabs()Ljava/util/ArrayList;
+-
+-    move-result-object v0
+-
+-    if-eqz v0, :cond_2
+-
+-    .line 2
+-    invoke-interface {v0}, Ljava/util/List;->size()I
+-
+-    move-result v1
+-
+-    if-lez v1, :cond_2
+-
+-    .line 3
+-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+-
+-    move-result-object v0
+-
+-    :cond_1
+-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+-
+-    move-result v1
+-
+-    if-eqz v1, :cond_2
+-
+-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+-
+-    move-result-object v1
+-
+-    check-cast v1, Lcom/jio/jioplay/tv/data/models/DynamicTabModel;
+-
+-    .line 4
+-    invoke-virtual {v1}, Lcom/jio/jioplay/tv/data/models/DynamicTabModel;->getId()Ljava/lang/Integer;
+-
+-    move-result-object v2
+-
+-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+-
+-    move-result v2
+-
+-    invoke-virtual {p1}, Lcom/jio/jioplay/tv/data/models/ScreenType;->getId()I
+-
+-    move-result v3
+-
+-    if-ne v2, v3, :cond_1
+-
+-    .line 5
+-    invoke-virtual {v1}, Lcom/jio/jioplay/tv/data/models/DynamicTabModel;->getAds()Ljava/util/List;
+-
+-    move-result-object v1
+-
+-    if-eqz v1, :cond_1
+-
+-    .line 6
+-    invoke-interface {v1}, Ljava/util/List;->size()I
+-
+-    move-result v2
+-
+-    if-lez v2, :cond_1
+-
+-    return-object v1
+-
+-    .line 7
+-    :cond_2
+-    new-instance p1, Ljava/util/ArrayList;
++    new-instance v0, Ljava/util/ArrayList;
+ 
+-    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
++    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+-    return-object p1
++    return-object v0
+ .end method
+ 
+ .method public getAddToRecentThreshold()I
+     .locals 1
+ 
+@@ -4638,11 +4566,13 @@
+             "Lcom/jio/jioplay/tv/data/network/response/BannerAdModel;",
+             ">;"
+         }
+     .end annotation
+ 
+-    iget-object v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->bannerAdList:Ljava/util/ArrayList;
++    new-instance v0, Ljava/util/ArrayList;
++
++    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+     return-object v0
+ .end method
+ 
+ .method public getBothTopAndBottomTabs()Ljava/util/ArrayList;
+@@ -4765,11 +4695,13 @@
+             "Lcom/jio/jioplay/tv/data/network/response/AdSpotModel;",
+             ">;"
+         }
+     .end annotation
+ 
+-    iget-object v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->carouselAdSpotList:Ljava/util/ArrayList;
++    new-instance v0, Ljava/util/ArrayList;
++
++    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+     return-object v0
+ .end method
+ 
+ .method public getCarouselAdsPosition()Ljava/lang/String;
+@@ -5037,11 +4969,13 @@
+             "Lcom/jio/jioplay/tv/data/network/response/AdSpotModel;",
+             ">;"
+         }
+     .end annotation
+ 
+-    iget-object v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->featuredAdSpotList:Ljava/util/ArrayList;
++    new-instance v0, Ljava/util/ArrayList;
++
++    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+     return-object v0
+ .end method
+ 
+ .method public getFingerprintChannelsIds()Ljava/lang/String;
+@@ -5337,11 +5271,13 @@
+             "Lcom/jio/jioplay/tv/data/network/response/AdSpotModel;",
+             ">;"
+         }
+     .end annotation
+ 
+-    iget-object v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->newsAdSpotList:Ljava/util/ArrayList;
++    new-instance v0, Ljava/util/ArrayList;
++
++    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+     return-object v0
+ .end method
+ 
+ .method public getNewsKey()Ljava/lang/String;
+@@ -5582,11 +5518,13 @@
+             "Lcom/jio/jioplay/tv/data/network/response/AdSpotModel;",
+             ">;"
+         }
+     .end annotation
+ 
+-    iget-object v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->sportsAdSpotList:Ljava/util/ArrayList;
++    new-instance v0, Ljava/util/ArrayList;
++
++    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+     return-object v0
+ .end method
+ 
+ .method public getSsaiLoadingtime()I
+@@ -5774,11 +5712,11 @@
+ .end method
+ 
+ .method public isAdsEnable()Z
+     .locals 1
+ 
+-    iget-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->adsEnable:Z
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method
+ 
+ .method public isAppUpdateType()Z
+@@ -5814,19 +5752,19 @@
+ .end method
+ 
+ .method public isCompanionAdsEnable()Z
+     .locals 1
+ 
+-    iget-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->isCompanionAdsEnable:Z
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method
+ 
+ .method public isDisplayCarouselAd()Z
+     .locals 1
+ 
+-    iget-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->displayCarouselAd:Z
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method
+ 
+ .method public isDisplayMastHead()Z
+@@ -5883,19 +5821,19 @@
+ .end method
+ 
+ .method public isEnableBannerAds()Z
+     .locals 1
+ 
+-    iget-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableBannerAds:Z
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method
+ 
+ .method public isEnableBillboardAds()Z
+     .locals 1
+ 
+-    iget-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableBillboardAds:Z
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method
+ 
+ .method public isEnableDarkmode()Z
+@@ -5920,19 +5858,19 @@
+ .end method
+ 
+ .method public isEnableInterstitialAds()Z
+     .locals 1
+ 
+-    iget-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableInterstitialAds:Z
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method
+ 
+ .method public isEnableInterstitialVideoAds()Z
+     .locals 1
+ 
+-    iget-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableInterstitialVideoAds:Z
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method
+ 
+ .method public isEnableJioEngage()Z
+@@ -5952,27 +5890,27 @@
+ .end method
+ 
+ .method public isEnableMidRollVideoAds()Z
+     .locals 1
+ 
+-    iget-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableMidRollVideoAds:Z
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method
+ 
+ .method public isEnableNativeAds()Z
+     .locals 1
+ 
+-    iget-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableNativeAds:Z
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method
+ 
+ .method public isEnableNativeInFeedAds()Z
+     .locals 1
+ 
+-    iget-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableNativeInFeedAds:Z
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method
+ 
+ .method public isEnablePlayalong()Z
+@@ -5984,11 +5922,11 @@
+ .end method
+ 
+ .method public isEnablePreRollVideoAds()Z
+     .locals 1
+ 
+-    iget-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enablePreRollVideoAds:Z
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method
+ 
+ .method public isJioCinemaRedirection()Z
+@@ -6016,11 +5954,11 @@
+ .end method
+ 
+ .method public isNativeInFeedAdinTabs()Z
+     .locals 1
+ 
+-    iget-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->nativeInFeedAdinTabs:Z
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method
+ 
+ .method public isOnSimilarChannelEnabled()Z
+@@ -6122,13 +6060,15 @@
+ 
+     return-void
+ .end method
+ 
+ .method public setAdsEnable(Z)V
+-    .locals 0
++    .locals 1
+ 
+-    iput-boolean p1, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->adsEnable:Z
++    const/4 v0, 0x0
++
++    iput-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->adsEnable:Z
+ 
+     return-void
+ .end method
+ 
+ .method public setApiBasePathVOD(Ljava/lang/String;)V
+@@ -6287,21 +6227,25 @@
+ 
+     return-void
+ .end method
+ 
+ .method public setCarouselAdSpotList(Ljava/util/ArrayList;)V
+-    .locals 0
++    .locals 1
+     .annotation system Ldalvik/annotation/Signature;
+         value = {
+             "(",
+             "Ljava/util/ArrayList<",
+             "Lcom/jio/jioplay/tv/data/network/response/AdSpotModel;",
+             ">;)V"
+         }
+     .end annotation
+ 
+-    iput-object p1, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->carouselAdSpotList:Ljava/util/ArrayList;
++    new-instance v0, Ljava/util/ArrayList;
++
++    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
++
++    iput-object v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->carouselAdSpotList:Ljava/util/ArrayList;
+ 
+     return-void
+ .end method
+ 
+ .method public setCarouselAdsPosition(Ljava/lang/String;)V
+@@ -6367,13 +6311,15 @@
+ 
+     return-void
+ .end method
+ 
+ .method public setCompanionAdsEnable(Z)V
+-    .locals 0
++    .locals 1
++
++    const/4 v0, 0x0
+ 
+-    iput-boolean p1, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->isCompanionAdsEnable:Z
++    iput-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->isCompanionAdsEnable:Z
+ 
+     return-void
+ .end method
+ 
+ .method public setDEFAULT_BUFFER_FOR_PLAYBACK_AFTER_REBUFFER_MS_CATCHUP(I)V
+@@ -6479,13 +6425,15 @@
+ 
+     return-void
+ .end method
+ 
+ .method public setDisplayCarouselAd(Z)V
+-    .locals 0
++    .locals 1
+ 
+-    iput-boolean p1, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->displayCarouselAd:Z
++    const/4 v0, 0x0
++
++    iput-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->displayCarouselAd:Z
+ 
+     return-void
+ .end method
+ 
+ .method public setDisplayMastHead(Z)V
+@@ -6543,21 +6491,25 @@
+ 
+     return-void
+ .end method
+ 
+ .method public setEnableBannerAds(Z)V
+-    .locals 0
++    .locals 1
+ 
+-    iput-boolean p1, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableBannerAds:Z
++    const/4 v0, 0x0
++
++    iput-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableBannerAds:Z
+ 
+     return-void
+ .end method
+ 
+ .method public setEnableBillboardAds(Z)V
+-    .locals 0
++    .locals 1
++
++    const/4 v0, 0x0
+ 
+-    iput-boolean p1, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableBillboardAds:Z
++    iput-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableBillboardAds:Z
+ 
+     return-void
+ .end method
+ 
+ .method public setEnableDarkmode(Z)V
+@@ -6567,13 +6519,15 @@
+ 
+     return-void
+ .end method
+ 
+ .method public setEnableInterstitialAds(Z)V
+-    .locals 0
++    .locals 1
++
++    const/4 v0, 0x0
+ 
+-    iput-boolean p1, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableInterstitialAds:Z
++    iput-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableInterstitialAds:Z
+ 
+     return-void
+ .end method
+ 
+ .method public setEnableLanguageOnBoarding(Z)V
+@@ -6583,37 +6537,45 @@
+ 
+     return-void
+ .end method
+ 
+ .method public setEnableMidRollVideoAds(Z)V
+-    .locals 0
++    .locals 1
+ 
+-    iput-boolean p1, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableMidRollVideoAds:Z
++    const/4 v0, 0x0
++
++    iput-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableMidRollVideoAds:Z
+ 
+     return-void
+ .end method
+ 
+ .method public setEnableNativeAds(Z)V
+-    .locals 0
++    .locals 1
++
++    const/4 v0, 0x0
+ 
+-    iput-boolean p1, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableNativeAds:Z
++    iput-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableNativeAds:Z
+ 
+     return-void
+ .end method
+ 
+ .method public setEnableNativeInFeedAds(Z)V
+-    .locals 0
++    .locals 1
+ 
+-    iput-boolean p1, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableNativeInFeedAds:Z
++    const/4 v0, 0x0
++
++    iput-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enableNativeInFeedAds:Z
+ 
+     return-void
+ .end method
+ 
+ .method public setEnablePreRollVideoAds(Z)V
+-    .locals 0
++    .locals 1
+ 
+-    iput-boolean p1, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enablePreRollVideoAds:Z
++    const/4 v0, 0x0
++
++    iput-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->enablePreRollVideoAds:Z
+ 
+     return-void
+ .end method
+ 
+ .method public setEnabledDeviceType(Ljava/lang/String;)V
+@@ -6639,21 +6601,25 @@
+ 
+     return-void
+ .end method
+ 
+ .method public setFeaturedAdSpotList(Ljava/util/ArrayList;)V
+-    .locals 0
++    .locals 1
+     .annotation system Ldalvik/annotation/Signature;
+         value = {
+             "(",
+             "Ljava/util/ArrayList<",
+             "Lcom/jio/jioplay/tv/data/network/response/AdSpotModel;",
+             ">;)V"
+         }
+     .end annotation
+ 
+-    iput-object p1, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->featuredAdSpotList:Ljava/util/ArrayList;
++    new-instance v0, Ljava/util/ArrayList;
++
++    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
++
++    iput-object v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->featuredAdSpotList:Ljava/util/ArrayList;
+ 
+     return-void
+ .end method
+ 
+ .method public setFingerprintChannelsIds(Ljava/lang/String;)V
+@@ -6894,13 +6860,15 @@
+ 
+     return-void
+ .end method
+ 
+ .method public setNativeInFeedAdinTabs(Z)V
+-    .locals 0
++    .locals 1
+ 
+-    iput-boolean p1, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->nativeInFeedAdinTabs:Z
++    const/4 v0, 0x0
++
++    iput-boolean v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->nativeInFeedAdinTabs:Z
+ 
+     return-void
+ .end method
+ 
+ .method public setNetworkCheckCacheDuration(I)V
+@@ -6918,21 +6886,25 @@
+ 
+     return-void
+ .end method
+ 
+ .method public setNewsAdSpotList(Ljava/util/ArrayList;)V
+-    .locals 0
++    .locals 1
+     .annotation system Ldalvik/annotation/Signature;
+         value = {
+             "(",
+             "Ljava/util/ArrayList<",
+             "Lcom/jio/jioplay/tv/data/network/response/AdSpotModel;",
+             ">;)V"
+         }
+     .end annotation
+ 
+-    iput-object p1, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->newsAdSpotList:Ljava/util/ArrayList;
++    new-instance v0, Ljava/util/ArrayList;
++
++    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
++
++    iput-object v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->newsAdSpotList:Ljava/util/ArrayList;
+ 
+     return-void
+ .end method
+ 
+ .method public setOnSimilarChannelEnabled(Z)V
+@@ -7138,21 +7110,25 @@
+ 
+     return-void
+ .end method
+ 
+ .method public setSportsAdSpotList(Ljava/util/ArrayList;)V
+-    .locals 0
++    .locals 1
+     .annotation system Ldalvik/annotation/Signature;
+         value = {
+             "(",
+             "Ljava/util/ArrayList<",
+             "Lcom/jio/jioplay/tv/data/network/response/AdSpotModel;",
+             ">;)V"
+         }
+     .end annotation
+ 
+-    iput-object p1, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->sportsAdSpotList:Ljava/util/ArrayList;
++    new-instance v0, Ljava/util/ArrayList;
++
++    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
++
++    iput-object v0, p0, Lcom/jio/jioplay/tv/data/network/response/AppConfigModel;->sportsAdSpotList:Ljava/util/ArrayList;
+ 
+     return-void
+ .end method
+ 
+ .method public setSsaiLoadingtime(I)V
